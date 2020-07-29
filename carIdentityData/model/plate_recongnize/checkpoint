@@ -1,0 +1,2 @@
+model_checkpoint_path: "G:\\CarPlateIdentity-master\\code\\./carIdentityData/model/plate_recongnize/model.ckpt-520"
+all_model_checkpoint_paths: "G:\\CarPlateIdentity-master\\code\\./carIdentityData/model/plate_recongnize/model.ckpt-520"
