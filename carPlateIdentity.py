@@ -9,6 +9,8 @@ char_table = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', '
               '川', '鄂', '赣', '甘', '贵','桂', '黑', '沪', '冀', '津', '京', '吉', '辽', '鲁', '蒙', '闽', '宁', '青', '琼',
               '陕', '苏', '晋','皖', '湘', '新', '豫', '渝', '粤', '云', '藏', '浙']
 
+
+
 def hist_image(img):
     assert img.ndim == 2
     hist = [0 for i in range(256)]
@@ -422,12 +424,11 @@ def cnn_recongnize_char(img_list, model_path):
 
 
 if __name__ == '__main__':
-    cur_dir = sys.path[0]
     car_plate_w, car_plate_h = 136, 36
     char_w, char_h = 20, 20
-    plate_model_path = os.path.join(cur_dir, './carIdentityData/model/plate_recongnize/model.ckpt-520.meta')
-    char_model_path = os.path.join(cur_dir, './carIdentityData/model/char_recongnize/model.ckpt-520.meta')
-    img_from_ROI = cv2.imread('./carIdentityData/images/3.jpg') # 接口
+    plate_model_path = 'carIdentityData/model/plate_recongnize/model.ckpt-520.meta'
+    char_model_path = 'carIdentityData/model/char_recongnize/model.ckpt-520.meta'
+    img_from_ROI = cv2.imread('carIdentityData/images/3.jpg') # 接口
 
     pred_img = pre_process(img_from_ROI)
 
@@ -436,7 +437,6 @@ if __name__ == '__main__':
     ret, car_plate = cnn_select_carPlate(car_plate_list, plate_model_path)
     if not ret:
         print("未检测到车牌")
-        sys.exit(-1)
 
     char_img_list = extract_char(car_plate)
 
